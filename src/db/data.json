@@ -1,0 +1,47 @@
+{
+  "list" : [
+    {
+      "id": "id",
+      "day": "day",
+      "toilet": "toilet",
+      "food": "food",
+      "play": "play",
+      "Nutrients": "Nutrients",
+      "ect": "ect"
+    }
+  ],
+  "data" : [
+
+      {
+        "id": 1,
+        "day": 1,
+        "toiletS": 2, 
+        "toiletD": 2,
+        "food": 5,
+        "play": 30,
+        "Nutrients": "Y",
+        "ect": "츄르"
+
+      },
+      {
+        "id": 2,
+        "day": 2,
+        "toiletS": 5, 
+        "toiletD": 2,
+        "food": 15,
+        "play": 30,
+        "Nutrients": "N",
+        "ect": "한 줄 나오기 한 줄 나오기"
+      },
+      {
+        "id": 3,
+        "day": 3,
+        "toiletS": 2, 
+        "toiletD": 2,
+        "food": 15,
+        "play": 10,
+        "Nutrients": "Y",
+        "ect": "한 줄 나오기 한 줄 나오기"
+      }
+  ]
+}
