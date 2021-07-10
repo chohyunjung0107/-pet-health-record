@@ -9,7 +9,6 @@
  npm install -g json-server
  json-server --watch ./src/db/data.json --port 3001
 ```
-<p>- yarn을 사용하고 있습니다.</p>
 <p>- 로그인 페이지 만들고 라우터로 연결하였습니다.</p> 
 
 ## 💬 숙제 
