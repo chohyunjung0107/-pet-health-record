@@ -13,4 +13,5 @@
 
 ## 💬 숙제 
 <p>- 리덕스 툴킷 예습(https://ko.redux.js.org/tutorials/quick-start)</p>
+<img src="https://user-images.githubusercontent.com/71998606/125917031-8f71b44e-01a1-4cbf-be80-40d09dec05ba.jpg">
 <p>- js 테스트(https://github.com/ovdncids/javascript-curriculum)</p>
