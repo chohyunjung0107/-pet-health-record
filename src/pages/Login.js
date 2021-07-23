@@ -47,7 +47,13 @@ export default function Login() {
       <div style={{ height: "100px" }}>
         <h2>LOGIN</h2>
       </div>
-      <form>
+      <form 
+      onSubmit={event=>{
+        // preventDefault: 액션을 막았다.
+        event.preventDefault();
+        dispatch(actionsMembers.memberLogin(member));
+      }}
+      >
         <LabelWrap>
           <label htmlFor="id">id</label>
           <input type="text"

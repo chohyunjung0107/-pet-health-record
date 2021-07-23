@@ -1,4 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+const axiosDefaultsHeaders = function(token) {
+  if (token) {
+    //로컬스토리지에 토큰 값을 저장(setItem)
+    localStorage.setItem('x-jwt-token', token);
+    //다음 통신부터 디폴트 값으로 헤더에 토근 값을 넘겨준다. 
+    axios.defaults.headers.common['x-jwt-token'] = token;
+  } else if (localStorage.getItem('x-jwt-token')) {
+    //한 번 로그인 하면 새로고침해도 로컬스토리지에 토큰 값이 저장되어있다.
+    axios.defaults.headers.common['x-jwt-token'] = localStorage.getItem('x-jwt-token');
+  }
+};
+axiosDefaultsHeaders();
 
 export const membersSlice = createSlice({
   //스토어를 잘라쓸껀데, 거기에 네임을 붙임 
@@ -18,6 +32,12 @@ export const membersSlice = createSlice({
     memberSet: (state, action) => {
       state.member = action.payload;
     },
+    // ajax를 통신하는 함수 // 백api 주소로 post해줌, action.payload: ui에서 입력한 회원정보//통신이 성공적으로 끝났을 때 then 실행
+    memberLogin: (state, action) => {
+      axios.post('http://localhost:3100/api/v1/members/login', action.payload).then(function(response) {
+        axiosDefaultsHeaders(response.data.token);
+      });
+    }
   }
 });
 
