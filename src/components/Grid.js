@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Usefetch from "../hooks/Usefetch";
-import { Button } from "../styled-components/Util";
+// import { Button } from "../styled-components/Util";
 
 const Wrap = styled.div`
   width: 100%;
@@ -35,13 +35,13 @@ const Ellipeis = styled.p`
 
 export default function Grid() {
   const [on, setOn] = useState(false);
-  const [on2, setOn2] = useState(false);
+  // const [on2, setOn2] = useState(false);
   function open() {
     setOn(!on);
   }
-  function open2() {
-    setOn2(!on2);
-  }
+  // function open2() {
+  //   setOn2(!on2);
+  // }
   const data = Usefetch("http://localhost:3001/data");
   const list = Usefetch("http://localhost:3001/list");
   const mon = [1, 2, 3, 4, 5, 6, 7, 8];

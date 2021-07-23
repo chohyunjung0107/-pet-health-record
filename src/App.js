@@ -41,7 +41,7 @@ export default function App() {
           <Route path="/write">
             <Write />
           </Route>
-          <Route>
+          <Route path="/error">
             <Error />
           </Route>
         </Switch>
