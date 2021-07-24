@@ -11,7 +11,7 @@
 ```
 <p>- 로그인 페이지 만들고 라우터로 연결하였습니다.</p> 
 
-## 리덕스 툴킷 
+## 💬리덕스 툴킷 
 <ul>
  <li>
   <a href="https://ridicorp.com/story/how-to-use-redux-in-ridi/">참고 텍스트</a>
@@ -21,7 +21,9 @@
  </li>
  <li>
   <img src="https://user-images.githubusercontent.com/71998606/126855847-6fe507e6-983c-46be-957a-55963d4e8549.jpg" />
-  <img src="https://user-images.githubusercontent.com/71998606/125917031-8f71b44e-01a1-4cbf-be80-40d09dec05ba.jpg" />
+ </li>
+ <li>
+ <img src="https://user-images.githubusercontent.com/71998606/125917031-8f71b44e-01a1-4cbf-be80-40d09dec05ba.jpg" />
  </li>
 </ul>
 
