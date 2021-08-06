@@ -11,8 +11,7 @@ const LoginWrap = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background: #555;
-	color: #fff;
+	color: #333;
 `;
 const LabelWrap = styled.div`
 	width: 100%;

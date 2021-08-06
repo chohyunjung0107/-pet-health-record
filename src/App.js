@@ -5,17 +5,17 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Menu from "./components/Menu";
 import Grid from "./components/Grid";
-
-// style component
-import SeachBox from "./components/Banner";
-import BtnBox from "./components/BtnBox";
-
 // page component
 import Write from "./pages/Write";
 import Login from "./pages/Login";
 import Error from "./pages/Error";
+// style component
+import SeachBox from "./components/Banner";
+import BtnBox from "./components/BtnBox";
+//redux
 import { MobileWrap, ContentWrap } from "./styled-components/Util";
 import { GlobalStyle } from "./styled-components/GlobalStyle";
+//router
 import { BrowserRouter, Route, Switch, Link, Redirect } from "react-router-dom";
 
 export default function App() {

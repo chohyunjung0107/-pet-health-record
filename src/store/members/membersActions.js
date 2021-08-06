@@ -25,6 +25,24 @@ const actions = {
 			.then(function (response) {
 				axiosDefaultsHeaders(response.data.token);
 				window.location.href = "/read";
+			})
+			.catch(function (error) {
+				alert(error.response.data.message || error.message || error);
+			});
+	},
+	memberCheck: (payload) => (dispatch) => {
+		axios
+			.get("http://localhost:3100/api/v1/members/login", payload)
+			.then(function (response) {
+				// 통신 완료 후, 토큰과 비교된 회원 정보를 받음
+				dispatch(
+					actionsMembers.memberSet({
+						name: response.data.decoded.name,
+						age: response.data.decoded.age,
+						id: response.data.decoded.id,
+						password: "",
+					})
+				);
 			});
 	},
 };
