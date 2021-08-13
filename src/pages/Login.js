@@ -37,6 +37,9 @@ export default function Login() {
 	const dispatch = useDispatch(); //리듀터의 함수를 호출하기 위한 함수
 	//(...유즈셀렉서(스테이스): 전부 복사.이닛스테이트 안에 있는 멤버를 가져옴)
 	const member = { ...useSelector(stateMembers).member };
+	//로딩
+	// const isLoading = useSelector(stateMembers).isLoading;
+	// console.log(isLoading);
 
 	return (
 		<LoginWrap>

@@ -20,6 +20,8 @@ const actions = {
 		dispatch(actionsMembers.memberSet(payload));
 	},
 	memberLogin: (payload) => (dispatch) => {
+		// 로딩 (true)
+		dispatch(actionsMembers.loadingSet(true));
 		axios
 			.post("http://localhost:3100/api/v1/members/login", payload)
 			.then(function (response) {
@@ -28,6 +30,10 @@ const actions = {
 			})
 			.catch(function (error) {
 				alert(error.response.data.message || error.message || error);
+			})
+			.finally(function () {
+				// 로딩 (false)
+				dispatch(actionsMembers.loadingSet(false));
 			});
 	},
 	memberCheck: (payload) => (dispatch) => {

@@ -11,11 +11,17 @@ export const membersSlice = createSlice({
 			id: "",
 			password: "",
 		},
+		// 로딩(false)
+		isLoading: false,
 	},
 	//스테이트 값을 바꿔주는 오브젝트
 	reducers: {
 		memberSet: (state, action) => {
 			state.member = action.payload;
+		},
+		// 로딩
+		loadingSet: (state, action) => {
+			state.isLoading = action.payload;
 		},
 	},
 });
