@@ -3,7 +3,7 @@ import { Button } from "../styled-components/Util";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { stateMembers } from "store/members/membersSlice.js";
-import actionsMembers from "store/members/membersActions";
+import actionsMembers from "store/members/membersActions.js";
 
 const LoginWrap = styled.div`
 	height: 83vh;
