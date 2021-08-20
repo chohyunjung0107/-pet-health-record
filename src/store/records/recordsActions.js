@@ -19,10 +19,11 @@ const actions = {
 	recordSet: (payload) => (dispatch) => {
 		dispatch(actionsRecords.recordSet(payload));
 	},
-	recordCreate: (payload) => (dispatch) => {
+	recordsCreate: (payload) => (dispatch) => {
 		axios
 			.post("http://localhost:3100/api/v1/records", payload)
 			.then(function (response) {
+				// 라이트 페이지에서 리드 페이지로 이동
 				window.location.href = "/read";
 				alert("저장되었습니다.")
 			})
@@ -30,19 +31,24 @@ const actions = {
 				alert(error.response.data.message || error.message || error);
 			});
 	},
-	recordCheck: (payload) => (dispatch) => {
+	recordsRead: (payload) => (dispatch) => {
 		axios
-			.get("http://localhost:3100/api/v1/records/login", payload)
+			.get("http://localhost:3100/api/v1/records", payload)
 			.then(function (response) {
-				// 통신 완료 후, 토큰과 비교된 회원 정보를 받음
+				// 통신 완료 후				
 				dispatch(
-					actionsRecords.recordSet({
-						name: response.data.decoded.name,
-						age: response.data.decoded.age,
-						id: response.data.decoded.id,
-						password: "",
-					})
+					actionsRecords.recordsSet(
+						response.data.records
+					)
 				);
+			});
+	},
+	recordsDelete: (payload) => (dispatch) => {
+		axios
+			.delete(`http://localhost:3100/api/v1/records/${payload}`)
+			.then(function (response) {
+				// 삭제후 리드가 실행된다.		
+				(actions.recordsRead())(dispatch);
 			});
 	},
 };

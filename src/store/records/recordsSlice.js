@@ -15,11 +15,17 @@ export const recordsSlice = createSlice({
 			breathPm: 0,
 			notice: "",
 		},
+		//리드할 때 초기 스테이트값을 생성
+		records:[],
 	},
 	//스테이트 값을 바꿔주는 오브젝트
 	reducers: {
 		recordSet: (state, action) => {
 			state.record = action.payload;
+		},
+		//리드할때의 리듀서 함수를 생성
+		recordsSet: (state, action) => {
+			state.records = action.payload;
 		},
 	},
 });

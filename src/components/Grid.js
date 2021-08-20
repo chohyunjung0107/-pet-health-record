@@ -1,7 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
-import Usefetch from "../hooks/Usefetch";
-// import { Button } from "../styled-components/Util";
+
+//리덕스
+import { useDispatch, useSelector } from "react-redux";
+import { stateRecords } from "store/records/recordsSlice.js";
+import actionsRecords from "store/records/recordsActions.js";
+
+
+
 
 const Wrap = styled.div`
   width: 100%;
@@ -35,36 +41,36 @@ const Ellipeis = styled.p`
 
 export default function Grid() {
   const [on, setOn] = useState(false);
-  // const [on2, setOn2] = useState(false);
   function open() {
     setOn(!on);
   }
-  // function open2() {
-  //   setOn2(!on2);
-  // }
-  const data = Usefetch("http://localhost:3001/data");
-  const list = Usefetch("http://localhost:3001/list");
   const mon = [1, 2, 3, 4, 5, 6, 7, 8];
 
-  // console.log(data);
-  // console.log(list);
+
+  const dispatch = useDispatch();
+	const records = useSelector(stateRecords).records; 
+  useEffect(() => {
+		dispatch(actionsRecords.recordsRead());
+	}, [dispatch]);
+
+  console.log(records)
 
   return (
     <>
       <Wrap>
         <Table>
-          {list.map((item, idx) => (
-            <Theade key={idx}>
+            <Theade>
               <tr>
-                <Td>{item.day}</Td>
-                <Td>{item.toilet}</Td>
-                <Td>{item.food}</Td>
-                <Td>{item.play}</Td>
-                <Td>{item.Nutrients}</Td>
-                <Td>{item.ect}</Td>
+                <Td>restroomPee</Td>
+                <Td>restroomPoo</Td>
+                <Td>meal</Td>
+                <Td>play</Td>
+                <Td>nutrients</Td>
+                <Td>breathAm</Td>
+                <Td>breathPm</Td>
+                <Td>notic</Td>
               </tr>
             </Theade>
-          ))}
           <tbody>
             <tr
               style={{
@@ -78,19 +84,25 @@ export default function Grid() {
                 {mon[0]}월<button onClick={open}>{on ? "닫힘" : "열림"}</button>
               </Td>
             </tr>
-            {data.map(
-              (item, idx) =>
+            {records.map(
+              (record, idx) =>
                 on === true && (
                   <tr key={idx}>
-                    <Tb>{item.day}일</Tb>
+                    <Tb>{record.restroomPee}</Tb>
+                    <Tb>{record.restroomPoo}</Tb>
+                    <Tb>{record.meal}g</Tb>
+                    <Tb>{record.play}min</Tb>
+                    <Tb>{record.nutrients  ? 'Y' : 'N'}</Tb>
+                    <Tb>{record.breathAm}</Tb>
+                    <Tb>{record.breathPm}</Tb>
+                    <Tb><Ellipeis>{record.notice}</Ellipeis></Tb>
                     <Tb>
-                      {item.toiletS}/{item.toiletD}
+                      <button onClick={()=>{
+                        dispatch(actionsRecords.recordsDelete(idx));
+                      }}>삭제</button>
                     </Tb>
-                    <Tb>{item.food}g</Tb>
-                    <Tb>{item.play}min</Tb>
-                    <Tb>{item.Nutrients}</Tb>
                     <Tb>
-                      <Ellipeis>{item.ect}</Ellipeis>
+                      <button>수정</button>
                     </Tb>
                   </tr>
                 )

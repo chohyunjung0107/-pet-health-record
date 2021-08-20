@@ -16,7 +16,7 @@ export default function BtnBox(props) {
     <>
       <Wrap>
         <Button red>
-          <Link style={{ color: "#fff" }} to="/write">
+          <Link style={{ color: "red" }} to="/write">
             {props.txt}
           </Link>
         </Button>

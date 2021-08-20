@@ -393,7 +393,7 @@ const Write = () => {
 					style={{ width: "100%", display: "flex", justifyContent: "center" }}
 				>
 					<Button onClick={()=>{
-						dispatch(actionsRecords.recordCreate(record));
+						dispatch(actionsRecords.recordsCreate(record));
 					}}>저장</Button>
 					<Button onClick={back}>취소</Button>
 				</div>
