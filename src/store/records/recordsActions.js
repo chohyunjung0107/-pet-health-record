@@ -19,12 +19,12 @@ const actions = {
 	recordSet: (payload) => (dispatch) => {
 		dispatch(actionsRecords.recordSet(payload));
 	},
-	recordLogin: (payload) => (dispatch) => {
+	recordCreate: (payload) => (dispatch) => {
 		axios
-			.post("http://localhost:3100/api/v1/records/login", payload)
+			.post("http://localhost:3100/api/v1/records", payload)
 			.then(function (response) {
-				axiosDefaultsHeaders(response.data.token);
 				window.location.href = "/read";
+				alert("저장되었습니다.")
 			})
 			.catch(function (error) {
 				alert(error.response.data.message || error.message || error);
