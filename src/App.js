@@ -38,9 +38,8 @@ export default function App() {
 					<Route path="/login">
 						<Login />
 					</Route>
-					<Route path="/write">
-						<Write />
-					</Route>
+					<Route path="/write" component={Write} />
+					<Route path="/update/:index" component={Write} />
 					<Route path="/error">
 						<Error />
 					</Route>

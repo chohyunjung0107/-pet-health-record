@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { Button } from "../styled-components/Util";
 
 //리덕스
@@ -38,11 +37,15 @@ import actionsRecords from "store/records/recordsActions.js";
 // 	);
 // };
 
-const Write = () => {
-	let history = useHistory();
+const Write = (props) => {
+	// console.log(props.match.params.index)
+	console.log(props)
 	function back() {
-		history.push("/");
+		props.history.push("/");
 	}
+
+	const isWrite = props.location.pathname === '/write'
+	console.log(isWrite)
 
 	//리덕스
 	const dispatch = useDispatch();
@@ -53,6 +56,7 @@ const Write = () => {
 		<>
 			<div style={{ position: "relative" }}>
 				<div style={{ width: "100%", background: "#999" }}>
+					<h3>{isWrite ? "Write" : "Update"}</h3>
 					<h3 style={{ textAlign: "center" }}>문항</h3>
 				</div>
 				<div
