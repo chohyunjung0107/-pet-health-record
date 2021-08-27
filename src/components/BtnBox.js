@@ -15,12 +15,16 @@ export default function BtnBox(props) {
   return (
     <>
       <Wrap>
-        <Button red>
-          <Link style={{ color: "red" }} to="/write">
+        <Button blue>
+          <Link to="/write">
             {props.txt}
           </Link>
         </Button>
-        <Button blue>{props.txt2}</Button>
+        <Button red> 
+          <Link to="update/:index">
+            {props.txt2}
+          </Link> 
+        </Button>
       </Wrap>
     </>
   );

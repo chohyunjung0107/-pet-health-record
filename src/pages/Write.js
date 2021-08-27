@@ -45,7 +45,7 @@ const Write = (props) => {
 	}
 
 	const isWrite = props.location.pathname === '/write'
-	console.log(isWrite)
+	// console.log(isWrite)
 
 	//리덕스
 	const dispatch = useDispatch();
@@ -56,7 +56,7 @@ const Write = (props) => {
 		<>
 			<div style={{ position: "relative" }}>
 				<div style={{ width: "100%", background: "#999" }}>
-					<h3>{isWrite ? "Write" : "Update"}</h3>
+					<h3 style={{color: "#fff", textAlign: "center" }}>{isWrite ? "[ Write ]" : "[ Update ]"}</h3>
 					<h3 style={{ textAlign: "center" }}>문항</h3>
 				</div>
 				<div

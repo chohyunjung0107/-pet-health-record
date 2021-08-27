@@ -10,27 +10,33 @@ import actionsRecords from "store/records/recordsActions.js";
 
 
 const Wrap = styled.div`
-  width: 100%;
+  width: 375px;
   height: 500px;
+  background: yellow;
 `;
 
 const Table = styled.table`
-  width: 100%;
+  width: 375px;
   border-collapse: collapse;
 `;
 
 const Theade = styled.thead`
+  width: 375px;
   border-bottom: 1px solid #000;
   text-align: center;
-`;
+  `;
 
 const Td = styled.td`
-  border-bottom: 1px solid #000;
+  border: 1px solid #000;
+  /* border-bottom: 1px solid #000; */
   text-align: center;
+  background: skyblue;
+  padding: 5px 10px;
 `;
 const Tb = styled.td`
   height: 30px;
   border: 1px solid #000;
+  text-align: center;
 `;
 const Ellipeis = styled.p`
   width: 50px;
@@ -56,60 +62,57 @@ export default function Grid() {
   console.log(records)
 
   return (
-    <>
-      <Wrap>
-        <Table>
-            <Theade>
-              <tr>
-                <Td>restroomPee</Td>
-                <Td>restroomPoo</Td>
-                <Td>meal</Td>
-                <Td>play</Td>
-                <Td>nutrients</Td>
-                <Td>breathAm</Td>
-                <Td>breathPm</Td>
-                <Td>notic</Td>
-              </tr>
-            </Theade>
-          <tbody>
-            <tr
-              style={{
-                width: "500px",
-                background: "yellow",
-                textAlign: "center",
-                marginLeft: "-100px",
-              }}
-            >
-              <Td colSpan="6">
-                {mon[0]}월<button onClick={open}>{on ? "닫힘" : "열림"}</button>
-              </Td>
+    <Wrap>
+      <Table>
+          <Theade>
+            <tr>
+              <Td>restroomPee</Td>
+              <Td>restroomPoo</Td>
+              <Td>meal</Td>
+              <Td>play</Td>
+              <Td>nutrients</Td>
+              <Td>breathAm</Td>
+              <Td>breathPm</Td>
+              <Td>notic</Td>
+              <Td>etc.</Td>
             </tr>
-            {records.map(
-              (record, idx) =>
-                on === true && (
-                  <tr key={idx}>
-                    <Tb>{record.restroomPee}</Tb>
-                    <Tb>{record.restroomPoo}</Tb>
-                    <Tb>{record.meal}g</Tb>
-                    <Tb>{record.play}min</Tb>
-                    <Tb>{record.nutrients  ? 'Y' : 'N'}</Tb>
-                    <Tb>{record.breathAm}</Tb>
-                    <Tb>{record.breathPm}</Tb>
-                    <Tb><Ellipeis>{record.notice}</Ellipeis></Tb>
-                    <Tb>
-                      <button onClick={()=>{
-                        dispatch(actionsRecords.recordsDelete(idx));
-                      }}>삭제</button>
-                    </Tb>
-                    <Tb>
-                      <button>수정</button>
-                    </Tb>
-                  </tr>
-                )
-            )}
-          </tbody>
-        </Table>
-      </Wrap>
-    </>
+          </Theade>
+        <tbody>
+          <tr
+            style={{
+              width: "500px",
+              background: "yellow",
+              textAlign: "center",
+              marginLeft: "-100px",
+            }}
+          >
+            <Td colSpan="10">
+              {mon[0]}월<button onClick={open}>{on ? "닫힘" : "열림"}</button>
+            </Td>
+          </tr>
+          {records.map(
+            (record, idx) =>
+              on === true && (
+                <tr key={idx}>
+                  <Tb>{record.restroomPee}</Tb>
+                  <Tb>{record.restroomPoo}</Tb>
+                  <Tb>{record.meal}g</Tb>
+                  <Tb>{record.play}min</Tb>
+                  <Tb>{record.nutrients  ? 'Y' : 'N'}</Tb>
+                  <Tb>{record.breathAm}</Tb>
+                  <Tb>{record.breathPm}</Tb>
+                  <Tb><Ellipeis>{record.notice}</Ellipeis></Tb>
+                  <Tb>
+                    <button onClick={()=>{
+                      dispatch(actionsRecords.recordsDelete(idx));
+                    }}>삭제</button>
+                    <button>수정</button>
+                  </Tb>
+                </tr>
+              )
+          )}
+        </tbody>
+      </Table>
+    </Wrap>
   );
 }

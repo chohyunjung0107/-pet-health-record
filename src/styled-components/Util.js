@@ -20,10 +20,7 @@ export const Button = styled.button`
   margin: 2% 0 2% 1%;
   border: none;
   border-radius: 5px;
-  color: #fff;
   cursor: pointer;
-  color: #000;
-  background: #fff;
   border: 1px solid #000;
 
   &:hover {
@@ -34,23 +31,24 @@ export const Button = styled.button`
   ${(props) =>
     props.red &&
     css`
-      color: red;
-      background: #000;
+      background: red;
       border: none;
+      color: #fff;
 
       &:hover {
-        background: red;
+        background: #999;
       }
     `}
 
   ${(props) =>
     props.blue &&
     css`
-      background: #000;
+      background: blue;
       border: none;
+      color: #fff;
 
       &:hover {
-        background: blue;
+        background: #999;
       }
     `};
 `;
